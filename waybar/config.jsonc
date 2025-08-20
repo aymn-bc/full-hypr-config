@@ -518,7 +518,7 @@
   },
   // ───────────────────────────────────────────────────────────────┤ cava ├───
   "custom/cava": {
-    "exec": "~/.config/waybar/scripts/waybar-cava.sh",
+    "exec": "sleep 2 && ~/.config/waybar/scripts/waybar-cava.sh",
     "interval": "0.1",
     "return-type": "json"
   }
