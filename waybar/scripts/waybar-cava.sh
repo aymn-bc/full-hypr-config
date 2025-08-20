@@ -5,13 +5,19 @@ SPACING=" "  # space character between bars
 
 # ... [previous initialization code] ...
 
-cava -p ~/.config/cava/config | while read -r line; do
+cava -p ~/.config/cava/config | awk 'NR % 20 == 0' | while read -r line; do
     bars=""
     line=${line//;/ }
     arr=($line)
     # pick only the first MAX_BARS numbers
     arr=("${arr[@]:0:$MAX_BARS}")
     
+    if [[ $line =~ ^(0+ ?)+$ ]]; then
+        # sleep a bit to save CPU
+        sleep 1
+        continue
+    fi
+
     # Process each bar with smoothing
     for n in "${arr[@]}"; do
         # prev=${PREVIOUS_LEVELS[$i]}
