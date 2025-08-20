@@ -13,9 +13,8 @@ cava -p ~/.config/cava/config | while read -r line; do
     arr=("${arr[@]:0:$MAX_BARS}")
     
     # Process each bar with smoothing
-    for i in "${!arr[@]}"; do
-        n=${arr[$i]}
-        prev=${PREVIOUS_LEVELS[$i]}
+    for n in "${arr[@]}"; do
+        # prev=${PREVIOUS_LEVELS[$i]}
         
         # ... [smoothing code] ...
         
